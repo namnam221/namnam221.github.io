@@ -1,0 +1,222 @@
+/* ベース設定 */
+:root {
+  --overlay-color: rgba(0, 0, 0, 0.45);
+  --accent: #ffd166;
+  --text: #ffffff;
+  --muted-text: rgba(255, 255, 255, 0.85);
+  --card-bg: rgba(255, 255, 255, 0.95);
+  --max-width: 1100px;
+  --radius: 12px;
+  --gap: 1.25rem;
+  font-family: "Hiragino Kaku Gothic ProN", "Noto Sans JP", "Segoe UI", Roboto,
+    sans-serif;
+  box-sizing: border-box;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+
+html,
+body {
+  height: 100%;
+  margin: 0;
+}
+
+/* 背景（画像は同階層の mourikogoro.jpeg を使用）*/
+body {
+  background-color: #486d46; /* 背景色 */
+  background-image: url("u2g.jpg"); /* 画像 */
+  background-size: cover; /* 全画面 */
+  background-attachment: fixed; /* 固定 */
+  background-position: center center; /* 縦横中央 */
+}
+
+/* ヘッダー */
+.site-header {
+  width: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 40;
+  padding: 0.75rem 1rem;
+}
+
+.nav {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--gap);
+}
+
+.logo {
+  font-weight: 700;
+  text-decoration: none;
+  color: var(--text);
+  font-size: 1.05rem;
+  letter-spacing: 0.02em;
+  background: linear-gradient(90deg, rgba(255, 255, 255, 0.12), transparent);
+  padding: 0.4rem 0.6rem;
+  border-radius: 8px;
+}
+
+.nav-links {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  gap: 0.75rem;
+}
+
+.nav-links a {
+  color: var(--text);
+  text-decoration: none;
+  padding: 0.45rem 0.7rem;
+  border-radius: 8px;
+  font-size: 0.95rem;
+  transition: background 0.15s ease;
+}
+
+.nav-links a:hover,
+.nav-links a:focus {
+  background: rgba(255, 255, 255, 0.08);
+  outline: none;
+}
+
+/* ヒーロー */
+.hero {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 70vh;
+  padding: 6.25rem 1rem 4rem; /* header の分を空ける */
+}
+
+.hero .overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(0, 0, 0, 0.25), rgba(0, 0, 0, 0.55));
+  mix-blend-mode: multiply;
+  z-index: 1;
+  pointer-events: none;
+}
+
+/* ヒーロー内部のコンテンツ */
+.hero-content {
+  position: relative;
+  z-index: 5;
+  max-width: 900px;
+  width: 100%;
+  text-align: center;
+  color: var(--text);
+  padding: 2rem;
+  backdrop-filter: blur(2px);
+  border-radius: 14px;
+}
+
+.hero h1 {
+  margin: 0 0 0.6rem 0;
+  font-size: clamp(1.6rem, 3.5vw, 2.6rem);
+  letter-spacing: 0.01em;
+}
+
+.lead {
+  margin: 0 0 1rem 0;
+  color: var(--muted-text);
+  font-size: 1.03rem;
+}
+
+.btn {
+  display: inline-block;
+  text-decoration: none;
+  padding: 0.6rem 1rem;
+  border-radius: 10px;
+  font-weight: 600;
+  background: var(--accent);
+  color: #111;
+  margin: 0 0.35rem;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.15);
+}
+
+.btn.ghost {
+  background: transparent;
+  color: var(--text);
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  box-shadow: none;
+}
+
+/* セクション（カード風にする）*/
+.section {
+  max-width: var(--max-width);
+  margin: 2rem auto;
+  padding: 1.25rem;
+  width: calc(100% - 2rem);
+}
+
+/* 明るいカード（読みやすい領域）*/
+.card {
+  background: linear-gradient(
+    180deg,
+    rgba(255, 255, 255, 0.92),
+    rgba(255, 255, 255, 0.88)
+  );
+  color: #111;
+  border-radius: var(--radius);
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.18);
+}
+
+/* ギャラリー風のグリッド */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1rem;
+}
+
+.work {
+  background: rgba(255, 255, 255, 0.95);
+  padding: 1rem;
+  border-radius: 10px;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.1);
+}
+
+.work h3 {
+  margin-top: 0;
+}
+
+/* フッター */
+.site-footer {
+  margin-top: auto;
+  padding: 1rem;
+  text-align: center;
+  color: rgba(255, 255, 255, 0.85);
+  font-size: 0.95rem;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
+}
+
+/* レスポンシブ微調整 */
+@media (max-width: 700px) {
+  .nav-links {
+    display: none;
+  } /* シンプルに小さい画面では非表示（必要ならハンバーガー追加） */
+  .hero {
+    padding: 5.5rem 0 3rem;
+  }
+  .hero-content {
+    padding: 1.25rem;
+  }
+  .grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* フォールバック：画像が読み込めない場合 */
+@supports not (background-image: url("mourikogoro.jpeg")) {
+  body {
+    background-color: #1b1b1b;
+  }
+}
