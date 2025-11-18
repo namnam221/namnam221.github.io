@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>サンプルサイト — Mourikogoro</title>
+    <link rel="stylesheet" href="stylesheet2.css" />
+  </head>
+  <body>
+    <header class="site-header" role="banner">
+      <nav class="nav">
+        <a class="logo" href="#">beikacho</a>
+        <ul class="nav-links" role="navigation" aria-label="主なリンク">
+          <li><a href="#about">About</a></li>
+          <li><a href="#works">Works</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <main class="hero" role="main" aria-labelledby="hero-title">
+      <div class="overlay"></div>
+      <div class="hero-content">
+        <h1 id="hero-title">毛利探偵事務所</h1>
+        <p class="lead">お困りごとは毛利探偵事務所へ！</p>
+        <p>
+          <a class="btn" href="#works">過去の実績</a>
+          <a class="btn ghost" href="#contact">お問い合わせ</a>
+        </p>
+      </div>
+    </main>
+
+    <section id="about" class="section card">
+      <h2>About</h2>
+      <p>東都米花町の探偵事務所です。</p>
+    </section>
+
+    <section id="contact" class="section card">
+      <h2>Contact</h2>
+      <p>メール: <a href="mailto:mouri@beikacjo.det">mouri_tantei@beika</a></p>
+    </section>
+
+    <footer class="site-footer" role="contentinfo">
+      <p>© <span id="year"></span> Mourikogoro</p>
+    </footer>
+
+    <script>
+      // フッターの年を自動表示
+      document.getElementById("year").textContent = new Date().getFullYear();
+    </script>
+  </body>
+</html>
